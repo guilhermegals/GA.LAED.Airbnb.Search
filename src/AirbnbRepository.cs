@@ -15,6 +15,11 @@ namespace GA.LAED.Airbnb.Search
         /// </summary>
         private const string FILE_PATH = @"Files/datas_airbnb.txt";
 
+        /// <summary>
+        /// Chave da tabela Hash
+        /// </summary>
+        private const int HASH_KEY = 523;
+
         #endregion
 
         #region [ Data ]
@@ -25,6 +30,11 @@ namespace GA.LAED.Airbnb.Search
         private readonly Airbnb[] _arrayData;
 
         /// <summary>
+        /// Array ordenado de Airbnb
+        /// </summary>
+        private readonly AirbnbBinary _binaryData;
+
+        /// <summary>
         /// Arvóre Binária de Airbnb
         /// </summary>
         private readonly AirbnbBinaryTree _binaryTreeData;
@@ -32,7 +42,7 @@ namespace GA.LAED.Airbnb.Search
         /// <summary>
         /// Hash Table de Airbnb
         /// </summary>
-        private readonly AirbnbHashTable _hashTable;
+        private readonly AirbnbHashTable _hashTableData;
 
         #endregion
 
@@ -45,11 +55,17 @@ namespace GA.LAED.Airbnb.Search
         {
             // Obtêm os dados armazenados no arquivo
             this._arrayData = this.ReadFile(FILE_PATH);
+            // Obtêm o tipo de dado para a pesquisa binária
+            this._binaryData = new AirbnbBinary(this._arrayData);
+            // Obtêm o tipo de dado de Árvore Binária
+            this._binaryTreeData = new AirbnbBinaryTree(this._arrayData);
+            // Obtêm o tipo de dado de Tabela Hash
+            this._hashTableData = new AirbnbHashTable(HASH_KEY, this._arrayData);
         }
 
         #endregion
 
-        #region [ Public Methods ]
+        #region [ Searchs ]
 
         /// <summary>
         /// Obtêm o Airbnb pelo IdRoom utilizando pesquisa Sequencial
@@ -70,11 +86,9 @@ namespace GA.LAED.Airbnb.Search
         /// <param name="idRoom">Id Room</param>
         /// <param name="comparsions">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
-        public Airbnb BinarySearch(int idRoom, out int comparsions)
+        public Airbnb BinarySearch(int idRoom, out int comparisons)
         {
-            comparsions = 0;
-            //TODO: Implementar a busca Binária
-            return null;
+            return this._binaryData.Search(idRoom, out comparisons);
         }
 
         /// <summary>
@@ -83,10 +97,9 @@ namespace GA.LAED.Airbnb.Search
         /// <param name="idRoom">Id Room</param>
         /// <param name="comparsions">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
-        public Airbnb BinaryTreeSearch(int idRoom, out int comparsions)
+        public Airbnb BinaryTreeSearch(int idRoom, out int comparisons)
         {
-            comparsions = 0;
-            return null;
+            return this._binaryTreeData.Search(idRoom, out comparisons);
         }
 
         /// <summary>
@@ -95,10 +108,9 @@ namespace GA.LAED.Airbnb.Search
         /// <param name="idRoom">Id Room</param>
         /// <param name="comparsions">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
-        public Airbnb HashTableSearch(int idRoom, out int comparsions)
+        public Airbnb HashTableSearch(int idRoom, out int comparisons)
         {
-            comparsions = 0;
-            return null;
+            return this._hashTableData.Search(idRoom, out comparisons);
         }
 
         /// <summary>

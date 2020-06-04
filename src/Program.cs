@@ -5,6 +5,12 @@ namespace GA.LAED.Airbnb.Search
 {
     class Program
     {
+
+        private const string SEQUENTIAL = "Pesquisa Sequencial";
+        private const string BINARY = "Pesquisa Binária";
+        private const string BINARY_TREE = "Pesquisa Árvore Binária";
+        private const string HASH = "Pesquisa Tabela Hash";
+
         static void Main(string[] args)
         {
             AirbnbRepository airbnbRepository = new AirbnbRepository();
@@ -36,22 +42,22 @@ namespace GA.LAED.Airbnb.Search
 
                     case 1:
                         // Pesquisa Sequencial
-                        Search(TypeSearch.Sequencial, idRoom, airbnbRepository.SequentialSearch);
+                        Search(SEQUENTIAL, idRoom, airbnbRepository.SequentialSearch);
                         break;
 
                     case 2:
                         // Pesquisa Binária
-                        Search(TypeSearch.Binaria, idRoom, airbnbRepository.BinarySearch);
+                        Search(BINARY, idRoom, airbnbRepository.BinarySearch);
                         break;
 
                     case 3:
                         // Pesquisa Árvore Binária
-                        Search(TypeSearch.ArvoreBinaria, idRoom, airbnbRepository.BinaryTreeSearch);
+                        Search(BINARY_TREE, idRoom, airbnbRepository.BinaryTreeSearch);
                         break;
 
                     case 4:
                         // Pesquisa Hash
-                        Search(TypeSearch.Hash, idRoom, airbnbRepository.HashTableSearch);
+                        Search(HASH, idRoom, airbnbRepository.HashTableSearch);
                         break;
 
                     default:
@@ -80,7 +86,7 @@ namespace GA.LAED.Airbnb.Search
         /// <param name="type">Tipo de Pesquisa</param>
         /// <param name="idRoom">Id Room pesquisado</param>
         /// <param name="searchDelegate">Função de pesquisa</param>
-        private static void Search(TypeSearch type, int idRoom, SearchDelegate searchDelegate)
+        private static void Search(string type, int idRoom, SearchDelegate searchDelegate)
         {
             Console.Clear();
             Console.Write("Pesquisando...");
@@ -104,7 +110,7 @@ namespace GA.LAED.Airbnb.Search
             Console.Clear();
             Console.WriteLine("Pesquisa finalizada");
             Console.WriteLine("-------------------");
-            Console.WriteLine($"Tipo: {type.ToString()}");
+            Console.WriteLine($"Tipo: {type}");
             Console.WriteLine($"Comparações: {comparsions}");
             Console.WriteLine($"Tempo: {time} s ({start.ToLongTimeString()} - {end.ToLongTimeString()})");
             Console.WriteLine("-------------------");

@@ -62,7 +62,7 @@ namespace GA.LAED.Airbnb.Search
         /// <summary>
         /// Construtor
         /// </summary>
-        public AirbnbBinaryTree()
+        public AirbnbBinaryTree(Airbnb[] array)
         {
             // Inicializa a raíz da árvore
             this.Root = null;
@@ -70,7 +70,22 @@ namespace GA.LAED.Airbnb.Search
 
         #endregion
 
-        // TODO: Criar árvore binária
+        #region [ Search ]
+
+        /// <summary>
+        /// Realiza a busca pela árvore binária
+        /// </summary>
+        /// <param name="idRoom">Id Room</param>
+        /// <param name="comparisons">Total de comparações</param>
+        /// <returns>Objeto Airbnb</returns>
+        public Airbnb Search(int idRoom, out int comparisons)
+        {
+            comparisons = 0;
+
+            return null;
+        }
+
+        #endregion
 
     }
 }
