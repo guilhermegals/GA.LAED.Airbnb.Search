@@ -54,7 +54,10 @@ namespace GA.LAED.Airbnb.Search
 
         #endregion
 
-        // Método ToString sobreescrito para obter as informações do Airbnb
+        /// <summary>
+        /// ToString sobrescrito
+        /// </summary>
+        /// <returns>Dados Airbnb</returns>
         public override string ToString()
         {
             string airbnb = string.Empty;
