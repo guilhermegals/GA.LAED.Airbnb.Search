@@ -14,7 +14,7 @@ namespace GA.LAED.Airbnb.Search
         static void Main(string[] args)
         {
             AirbnbRepository airbnbRepository = new AirbnbRepository();
-            int option, idRoom;
+            int option = 0, idRoom = 0;
             do
             {
                 Console.Clear();
@@ -29,10 +29,13 @@ namespace GA.LAED.Airbnb.Search
                 bool validOption = int.TryParse(Console.ReadLine(), out option);
                 if (!validOption) continue;
 
-                // Obtem o Id Room digitado e caso seja inválida prossegue no loop
-                Console.Write("Id Room: ");
-                bool validRoom = int.TryParse(Console.ReadLine(), out idRoom);
-                if (!validRoom) continue;
+                if (option != 0)
+                {
+                    // Obtem o Id Room digitado e caso seja inválida prossegue no loop
+                    Console.Write("Id Room: ");
+                    bool validRoom = int.TryParse(Console.ReadLine(), out idRoom);
+                    if (!validRoom) continue;
+                }
 
                 switch (option)
                 {
@@ -105,14 +108,14 @@ namespace GA.LAED.Airbnb.Search
             DateTime end = DateTime.Now;
 
             // Converte o tempo do cronômetro para segundos
-            double time = watch.ElapsedMilliseconds / 1000.0;
+            long time = watch.ElapsedTicks;
 
             Console.Clear();
             Console.WriteLine("Pesquisa finalizada");
             Console.WriteLine("-------------------");
             Console.WriteLine($"Tipo: {type}");
             Console.WriteLine($"Comparações: {comparisons}");
-            Console.WriteLine($"Tempo: {time} s ({start.ToLongTimeString()} - {end.ToLongTimeString()})");
+            Console.WriteLine($"Tempo: {time} ticks ({start.ToLongTimeString()} - {end.ToLongTimeString()})");
             Console.WriteLine("-------------------");
 
             // Mostra o objeto pesquisado

@@ -55,6 +55,26 @@ namespace GA.LAED.Airbnb.Search
         #endregion
 
         /// <summary>
+        /// Copia dos valores do objeto atual para um novo objeto
+        /// </summary>
+        /// <returns></returns>
+        public Airbnb GetCopy()
+        {
+            return new Airbnb(this.RoomId,
+                              this.HostId,
+                              this.RoomType,
+                              this.City,
+                              this.Country,
+                              this.Neighborhood,
+                              this.Reviews,
+                              this.OverallSatisfaction,
+                              this.Accommodates,
+                              this.Bedrooms,
+                              this.Price,
+                              this.PropertyType);
+        }
+
+        /// <summary>
         /// ToString sobrescrito
         /// </summary>
         /// <returns>Dados Airbnb</returns>

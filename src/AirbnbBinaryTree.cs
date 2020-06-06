@@ -66,6 +66,46 @@ namespace GA.LAED.Airbnb.Search
         {
             // Inicializa a raíz da árvore
             this.Root = null;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                // Insere os objetos na árvore
+                this.Insert(array[i].GetCopy());
+            }
+        }
+
+        #endregion
+
+        #region [ Insert ]
+
+        /// <summary>
+        /// Insere um novo Airbnb na árvore
+        /// </summary>
+        /// <param name="airbnb">Objeto Airbnb</param>
+        public void Insert(Airbnb airbnb)
+        {
+            this.Root = Insert(this.Root, airbnb);
+        }
+
+        /// <summary>
+        /// Insere um objeto Airbnb no nó da árvore
+        /// </summary>
+        /// <param name="node">Nó</param>
+        /// <param name="airbnb">Objeto Airbnb</param>
+        /// <returns>Nó</returns>
+        private AirbnbNode Insert(AirbnbNode node, Airbnb airbnb)
+        {
+            if (node == null)
+                node = new AirbnbNode(airbnb);
+            else
+            {
+                if (node.Value.RoomId > airbnb.RoomId)
+                    node.Left = this.Insert(node.Left, airbnb);
+                else if (node.Value.RoomId < airbnb.RoomId)
+                    node.Right = this.Insert(node.Right, airbnb);
+            }
+
+            return node;
         }
 
         #endregion
@@ -82,10 +122,40 @@ namespace GA.LAED.Airbnb.Search
         {
             comparisons = 0;
 
+            if (this.IsEmpity())
+                return null;
+
+            AirbnbNode node = Search(this.Root, idRoom, ref comparisons);
+
+            if (node != null)
+                return node.Value;
+
+            return null;
+        }
+
+        private AirbnbNode Search(AirbnbNode node, int idRoom, ref int comparisons)
+        {
+            comparisons++;
+            if (node != null)
+            {
+                if (node.Value.RoomId == idRoom)
+                    return node;
+
+                if (idRoom < node.Value.RoomId)
+                    return Search(node.Left, idRoom, ref comparisons);
+                else
+                    return Search(node.Right, idRoom, ref comparisons);
+
+            }
+
             return null;
         }
 
         #endregion
 
+        public bool IsEmpity()
+        {
+            return this.Root == null;
+        }
     }
 }
