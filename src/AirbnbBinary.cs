@@ -87,7 +87,18 @@ namespace GA.LAED.Airbnb.Search
 
             for (int i = 0; i < airbnbCopy.Length; i++)
             {
-                airbnbCopy[i] = array[i];
+                airbnbCopy[i] = new Airbnb(array[i].RoomId,
+                                           array[i].HostId,
+                                           array[i].RoomType,
+                                           array[i].City,
+                                           array[i].Country,
+                                           array[i].Neighborhood,
+                                           array[i].Reviews,
+                                           array[i].OverallSatisfaction,
+                                           array[i].Accommodates,
+                                           array[i].Bedrooms,
+                                           array[i].Price,
+                                           array[i].PropertyType);
             }
 
             return airbnbCopy;
