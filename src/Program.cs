@@ -5,11 +5,29 @@ namespace GA.LAED.Airbnb.Search
 {
     class Program
     {
+        #region [ Constants ]
 
+        /// <summary>
+        /// Texto "Pesquisa Sequencial"
+        /// </summary>
         private const string SEQUENTIAL = "Pesquisa Sequencial";
+
+        /// <summary>
+        /// Texto "Pesquisa Binária"
+        /// </summary>
         private const string BINARY = "Pesquisa Binária";
+
+        /// <summary>
+        /// Texto "Pesquisa Árvore Binária"
+        /// </summary>
         private const string BINARY_TREE = "Pesquisa Árvore Binária";
+
+        /// <summary>
+        /// Texto "Pesquisa Tabela Hash"
+        /// </summary>
         private const string HASH = "Pesquisa Tabela Hash";
+
+        #endregion
 
         static void Main(string[] args)
         {

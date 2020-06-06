@@ -153,9 +153,17 @@ namespace GA.LAED.Airbnb.Search
 
         #endregion
 
+        #region [ Is Empity ]
+
+        /// <summary>
+        /// Verifica se a árvore esta vazia
+        /// </summary>
+        /// <returns>Árvore vazia?</returns>
         public bool IsEmpity()
         {
             return this.Root == null;
         }
+
+        #endregion
     }
 }

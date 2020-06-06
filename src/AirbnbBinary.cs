@@ -1,5 +1,8 @@
 namespace GA.LAED.Airbnb.Search
 {
+    /// <summary>
+    /// Estrutura de dados Binária
+    /// </summary>
     public class AirbnbBinary
     {
         #region [ Properties ]

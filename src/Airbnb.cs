@@ -54,10 +54,12 @@ namespace GA.LAED.Airbnb.Search
 
         #endregion
 
+        #region [ Copy ]
+
         /// <summary>
         /// Copia dos valores do objeto atual para um novo objeto
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Cópia do Airbnb</returns>
         public Airbnb GetCopy()
         {
             return new Airbnb(this.RoomId,
@@ -73,6 +75,10 @@ namespace GA.LAED.Airbnb.Search
                               this.Price,
                               this.PropertyType);
         }
+
+        #endregion
+
+        #region [ To String ]
 
         /// <summary>
         /// ToString sobrescrito
@@ -95,5 +101,7 @@ namespace GA.LAED.Airbnb.Search
             airbnb += $"Property Type: {this.PropertyType}\n";
             return airbnb;
         }
+
+        #endregion
     }
 }
