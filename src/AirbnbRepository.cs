@@ -13,7 +13,7 @@ namespace GA.LAED.Airbnb.Search
         /// <summary>
         /// Caminho do arquivo
         /// </summary>
-        private const string FILE_PATH = @"Files/datas_airbnb.txt";
+        private const string FILE_PATH = @"Files/data_airbnb.txt";
 
         /// <summary>
         /// Chave da tabela Hash
