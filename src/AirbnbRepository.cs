@@ -71,12 +71,17 @@ namespace GA.LAED.Airbnb.Search
         /// Obtêm o Airbnb pelo IdRoom utilizando pesquisa Sequencial
         /// </summary>
         /// <param name="idRoom">Id Room</param>
-        /// <param name="comparsions">Total de comparações</param>
+        /// <param name="comparisons">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
-        public Airbnb SequentialSearch(int idRoom, out int comparsions)
+        public Airbnb SequentialSearch(int idRoom, out int comparisons)
         {
-            comparsions = 0;
-            // TODO: Implementar a busca Sequencial
+            comparisons = 0;
+            for (int i = 0; i < this._arrayData.Length; i++)
+            {
+                comparisons++;
+                if (this._arrayData[i].RoomId == idRoom)
+                    return this._arrayData[i];
+            }
             return null;
         }
 
@@ -84,7 +89,7 @@ namespace GA.LAED.Airbnb.Search
         /// Obtêm o Airbnb pelo IdRoom utilizando pesquisa Binária
         /// </summary>
         /// <param name="idRoom">Id Room</param>
-        /// <param name="comparsions">Total de comparações</param>
+        /// <param name="comparisons">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
         public Airbnb BinarySearch(int idRoom, out int comparisons)
         {
@@ -95,7 +100,7 @@ namespace GA.LAED.Airbnb.Search
         /// Obtêm o Airbnb pelo IdRoom utilizando pesquisa com Árvore Binária
         /// </summary>
         /// <param name="idRoom">Id Room</param>
-        /// <param name="comparsions">Total de comparações</param>
+        /// <param name="comparisons">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
         public Airbnb BinaryTreeSearch(int idRoom, out int comparisons)
         {
@@ -106,7 +111,7 @@ namespace GA.LAED.Airbnb.Search
         /// Obtêm o Airbnb pelo IdRoom utilizando pesquisa com Tabela Hash
         /// </summary>
         /// <param name="idRoom">Id Room</param>
-        /// <param name="comparsions">Total de comparações</param>
+        /// <param name="comparisons">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
         public Airbnb HashTableSearch(int idRoom, out int comparisons)
         {

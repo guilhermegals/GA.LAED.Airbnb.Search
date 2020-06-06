@@ -76,9 +76,9 @@ namespace GA.LAED.Airbnb.Search
         /// Delegate de pesquisa
         /// </summary>
         /// <param name="idRoom">Id Room</param>
-        /// <param name="comparsions">Total de comparações</param>
+        /// <param name="comparisons">Total de comparações</param>
         /// <returns>Objeto Airbnb</returns>
-        private delegate Airbnb SearchDelegate(int idRoom, out int comparsions);
+        private delegate Airbnb SearchDelegate(int idRoom, out int comparisons);
 
         /// <summary>
         /// Efetua a pesquisa pelo delegate e registra seus logs
@@ -97,7 +97,7 @@ namespace GA.LAED.Airbnb.Search
             // Inicia o cronômetro
             Stopwatch watch = Stopwatch.StartNew();
             // Invoca o delegate
-            Airbnb airbnb = searchDelegate.Invoke(idRoom, out int comparsions);
+            Airbnb airbnb = searchDelegate.Invoke(idRoom, out int comparisons);
             // Pausa o cronômetro
             watch.Stop();
 
@@ -111,7 +111,7 @@ namespace GA.LAED.Airbnb.Search
             Console.WriteLine("Pesquisa finalizada");
             Console.WriteLine("-------------------");
             Console.WriteLine($"Tipo: {type}");
-            Console.WriteLine($"Comparações: {comparsions}");
+            Console.WriteLine($"Comparações: {comparisons}");
             Console.WriteLine($"Tempo: {time} s ({start.ToLongTimeString()} - {end.ToLongTimeString()})");
             Console.WriteLine("-------------------");
 
