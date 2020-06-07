@@ -132,6 +132,7 @@ namespace GA.LAED.Airbnb.Search
             Console.WriteLine("Pesquisa finalizada");
             Console.WriteLine("-------------------");
             Console.WriteLine($"Tipo: {type}");
+            Console.WriteLine($"ID Room pesquisado: {idRoom}");
             Console.WriteLine($"Comparações: {comparisons}");
             Console.WriteLine($"Tempo: {time} ticks ({start.ToLongTimeString()} - {end.ToLongTimeString()})");
             Console.WriteLine("-------------------");
