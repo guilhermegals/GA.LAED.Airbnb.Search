@@ -40,8 +40,29 @@ namespace GA.LAED.Airbnb.Search
         public Airbnb Search(int idRoom, out int comparisons)
         {
             comparisons = 0;
+            return this.Search(idRoom, 0, this.OrderedArray.Length, ref comparisons);
+        }
 
-            return null;
+        private Airbnb Search(int idRoom, int first, int last, ref int comparisons)
+        {
+            int middle = (first + last) / 2;
+            comparisons++;
+            if (first > last)
+            {
+                return null;
+            }
+            else if (this.OrderedArray[middle].RoomId == idRoom)
+            {
+                return OrderedArray[middle];
+            }
+            else if (idRoom < this.OrderedArray[middle].RoomId)
+            {
+                return Search(idRoom, first, middle - 1, ref comparisons);
+            }
+            else
+            {
+                return Search(idRoom, middle + 1, last, ref comparisons);
+            }
         }
 
         #endregion
